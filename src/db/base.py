@@ -1,0 +1,1 @@
+from src.models.bookmark import Bookmark
