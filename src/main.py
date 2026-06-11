@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 
+from src.db.base import *
 from src.db.database import Base, engine
 from src.routes.bookmarks import router as bookmark_router
 
