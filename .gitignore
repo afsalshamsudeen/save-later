@@ -145,6 +145,9 @@ myvenv/
 env.bak/
 venv.bak/
 
+# Test
+src/test.py
+
 # Spyder project settings
 .spyderproject
 .spyproject
