@@ -4,6 +4,8 @@ from src.models.user import User
 from src.core.security import verify_password
 from fastapi import HTTPException
 
+from src.core.jwt_handler import create_access_token
+
 def login_user(db: Session, user_data: UserLogin):
 
     user = db.query(User).filter(
@@ -24,4 +26,13 @@ def login_user(db: Session, user_data: UserLogin):
 
         )
     
-    return user
+    access_token = create_access_token(
+        {
+            "sub":user.email
+        }
+    )
+
+    return {
+        "access_token":access_token,
+        "token_type":"bearer"
+    }
